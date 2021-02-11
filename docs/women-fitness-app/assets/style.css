@@ -1,0 +1,308 @@
+.jumbo-container {
+    background: url(img/mty.jpg);
+    color: #727272;
+    font-size: 59;
+    height: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px #ccc;
+}
+.home-genres{
+    padding: 45px 15px;
+}
+.home-genres__tiles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.home-genres__tile{
+    color: #4c4c4c;
+    border: 1px solid #e8e7e7;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #fff;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
+}
+.home-genres__tile:hover,.home-genres__tile:disabled{
+    text-decoration: none;
+    color: #4c4c4c;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+    border: 0;
+}
+
+.home-genres__title::after{
+    content: "";
+    background-color: #E7B366;
+    width: 100px;
+    height: 1px;
+    display: flex;
+    margin: 20px auto;
+}
+.book-card{
+    border-radius: .5em;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+    background: #fff;
+    color: #000;
+    margin: 25px;
+    height: 301px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.book-card div{
+    height: 100%;
+}
+.book-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+}
+.book-card:hover{
+    text-decoration: none;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+    border: 0;
+}
+.book-row{
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.book-cover{
+    display: inline-block;
+    flex-basis: 100%;
+    width: 50%;
+    height: 100%;
+}
+.book-info {
+    flex-basis: 100%;
+    height: 100%;
+}
+.name-font{
+    font-style: oblique;
+    font-size: 14px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+}
+.author-font{
+    font-size: 12px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+}
+
+.nav-btn{
+    background: transparent;
+    border-radius: 7.5px;
+    padding: 10px;
+    color: inherit;
+    font-size: 14px;
+    border-color: ghostwhite;
+    letter-spacing: 1px;
+    border: 1px solid #aaa;
+}
+.header-btns button{
+    margin-left: 23px;
+}
+@media only screen and (max-width: 576px) {
+    .nav-btn {
+      font-size: 10px;
+    }
+    .header-btns button{
+        margin-left: 5px;
+    }
+}
+.nav-btn:hover{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.08);
+}
+.navbar{
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.08);
+}
+.navbar a{
+    padding: 0;
+}
+.navbar a img{
+    height: 83px;
+    width: 136px;
+}
+@media only screen and (max-width: 576px) {
+    .navbar a img {
+        height: 40px;
+        width: 50px;
+    }
+}
+.recommendation-option #accordion .card{
+    margin-top: 25px;
+}
+.recommendation-option .card-header{
+    background: transparent;
+}
+.recommendation-option h5{
+    width: 100%;
+}
+.recommendation-option h5 button{
+    width: 100%;
+}
+
+.recommendation-option button[aria-expanded=true] .fa-plus-circle {
+    display: none;
+ }
+ .recommendation-option button[aria-expanded=false] .fa-minus-circle {
+    display: none;
+ }
+ @media only screen and (max-width: 576px) {
+    .recommendation-option button .fa-plus-circle {
+        display: none;
+     }
+     .recommendation-option button .fa-minus-circle {
+        display: none;
+     }
+     .recommendation-option button span {        
+        font-size: 9px;
+     }
+  }
+ .btn-link{
+    color: #009999;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-decoration: none;
+ }
+ .btn-link:hover{
+    text-decoration: none;
+    color: #009999;
+ }
+ .btn-link:focus{
+    text-decoration: none;
+ }
+ .username-btn{
+    background-color: #009999;
+    border-color: #009999;
+    
+ }
+ @media only screen and (min-width: 768px) {
+    .username-btn {
+        margin-top : 43px;
+    }
+ }
+ .username-btn:hover{
+    background-color: #009999;
+    border-color: #009999;
+ }
+.active-cyan-4 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #009999;
+    box-shadow: 0 1px 0 0 #009999;
+  }
+  .active-cyan-4  .fa-search{
+      color: #fff;
+      background-color: #009999;;
+  }
+  .recommendation-option .form-group ,.form-inline{
+      margin-top: 10px;
+  }
+  .recommendation-option .form-group label{
+    letter-spacing: .7px;
+    font-size: 13px;
+  }
+
+  #searchForm .dropdown-menu{
+    left: 0;
+    right: 0;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+  #searchForm .dropdown-item.active,#searchForm .dropdown-item:active, #searchForm .dropdown-item:hover{
+        background-color: #d1ebeb;
+  }
+  
+  #collapseTwo .dropdown-menu a{
+    white-space: pre-wrap;
+  }
+  a.dropdown-item{
+      cursor: pointer;
+  }
+  .username-btn.btn-primary.disabled, .username-btn.btn-primary:disabled{
+    background-color: #009999;;
+    border-color: #009999;
+  }
+  .username-btn.btn-primary:not(:disabled):not(.disabled):active{
+    background-color: #009999;;
+    border-color: #009999;
+  }
+  .pages__container{
+      margin-top: 20px;
+      width: 100%;
+      max-width: 340px;
+  }
+  .pages__container p{
+      margin-top: 35px;
+      margin-bottom: 35px;
+  }
+  .pages__container h2::after {
+    content: "";
+    background-color: #E7B366;
+    width: 100px;
+    height: 1px;
+    display: flex;
+    margin: 20px auto;
+  }
+  .faq-page__container{
+    margin: 20px 20px;
+  }
+  .faq-page__container h2::after {
+    content: "";
+    width: 100px;
+    background-color: #E7B366;
+    height: 1px;
+    display: flex;
+    margin: 20px auto;
+  }
+  .pages__divider{
+    content: "";
+    width: 100%;
+    background-color: #DCDCDC;
+    height: 1px;
+    display: flex;
+    margin: 50px auto;
+  }
+  @keyframes spinner-border {
+    to { transform: rotate(360deg); }
+  } 
+  .spinner{
+      display: none;
+      z-index: 1;
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0,0,0,0.7);
+  }
+  .spinner-border {
+    position: absolute;
+    top: 50%;
+    left: 50%;    
+    width: 2rem;
+    height: 2rem;
+    vertical-align: text-bottom;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner-border .75s linear infinite;
+    animation: spinner-border .75s linear infinite;
+}
+.display-none{
+    display: none;
+}
+.error-message{
+    color: red;
+    letter-spacing: .6px;
+    font-size: 14px;
+}

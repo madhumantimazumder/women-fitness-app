@@ -1,0 +1,17 @@
+{
+    "status":{
+        "code":200
+    },
+    "response":{
+        "bookslist":[
+            {
+                "name":"Adventures of Stainless Steel Rat",
+                "author":"Harry Harrison"
+            },
+            {
+                "name":"Guardians of the Flame",
+                "author":"Joel Rosenberg"
+            }
+        ]
+    }
+}
