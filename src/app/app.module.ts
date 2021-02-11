@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { UtilityService } from './services/utility.service';
 import {HealthDataContainerComponent } from'./health-data-container/health-data-container.component';
 import {ProfileContainerComponent } from'./profile-container/profile-container.component';
+import { DataComponent } from './health-data-container/data/data.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProfileContainerComponent,
-    HealthDataContainerComponent
+    HealthDataContainerComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,

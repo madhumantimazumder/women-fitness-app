@@ -20,7 +20,9 @@ export class ProfileContainerComponent implements OnInit {
     this.profileForm =  new FormGroup({
       "name": new FormControl(null, [Validators.required]),
       "email": new FormControl(null, [Validators.required,Validators.email]),
-      "phone": new FormControl(null, [Validators.required]),
+      "age": new FormControl(null, [Validators.required]),
+      "height": new FormControl(null, [Validators.required]),
+      "weight": new FormControl(null, [Validators.required]),
       
     });
     this.goalForm =  new FormGroup({
@@ -28,6 +30,7 @@ export class ProfileContainerComponent implements OnInit {
       "calorie": new FormControl(null),
       "weight": new FormControl(null),
     });
+    
   }
 
   ngOnInit(): void {
@@ -45,12 +48,15 @@ export class ProfileContainerComponent implements OnInit {
     
   }
   getData(){
-    this.utilityService.getUserdata().subscribe((data)=>{ 
+    var data=this.utilityService.getUser();
+   // this.utilityService.getUserdata().subscribe((data)=>{ 
       //this.profileForm.get('name').setValue(data.user.name);
       this.profileForm.setValue({
-        name: data.user.name, 
-        email:data.user.email,
-        phone:data.user.phone
+        name: data.profile.name, 
+        email:data.profile.email,
+        age:data.profile.age,
+        height:data.profile.height,
+        weight:data.profile.weight
       });
       
       this.goalForm.setValue({
@@ -60,9 +66,9 @@ export class ProfileContainerComponent implements OnInit {
       });
       this.goalForm.disable();
       this.profileForm.disable();
-    },
-    (error)=>{
-    });
+    // },
+    // (error)=>{
+    // });
   }
   saveData(){
     

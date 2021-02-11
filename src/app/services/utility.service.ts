@@ -14,23 +14,25 @@ import { getMaxListeners } from 'process';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UtilityService {
   private genre_subject = new BehaviorSubject<any>('');
-  display_loading = new Subject<any>();
+  desc = new Subject<any>();
   private recommendation_type = new BehaviorSubject<any>('');
  // private books:Book[];
   private booktitles;
   private user;
   constructor(private http: HttpClient) { 
-    this.user={
-      
-    }
+    
 
   }
- 
+  
+  setDesc(val){
+    this.desc.next(val)
+  }
   serviceWrapper (serviceURL, requestData, successHandler, post?){
     var responseSubject = new Subject<any>();
-    this.display_loading.next(true);
     if(!!post){
       this.http.post(serviceURL, requestData).subscribe(function (data) {
         var result = successHandler(data);
@@ -59,7 +61,12 @@ export class UtilityService {
     }
     return responseSubject;
   }
- 
+  storeUser(user){
+    this.user=user;
+  }
+  getUser(){
+    return this.user;
+  }
   getUserdata(){
    
   // environment.API_URL
@@ -69,9 +76,21 @@ export class UtilityService {
     (successData) => {      
           return {
 
-              'data': successData
+              'data': successData.user
           };
     
     });
+    }
+    getDailyHealthdata(){
+      return this.serviceWrapper(
+        environment.API_URL+"dailyData.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData
+              };
+        
+        });
     }
 }

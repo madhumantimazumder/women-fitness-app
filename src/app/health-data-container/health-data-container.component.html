@@ -1,0 +1,55 @@
+<div class="panel-content container">  
+    <div class="p-2 status__tile">
+        <p>Your weight is {{cur_weight}} </p>
+        <p class="date">last updated {{last_date}}</p>
+        <p>{{weight_text}}</p>
+    </div>  
+    <div class="row">
+        <div class=" col-6">
+            <a class="health-card d-flex flex-column" (click)="stepDesc()"> 
+                
+                
+                <div class="p-2 font-weight-bold">
+                    {{count}} steps
+                </div>
+                <div class="p-2">
+                    {{step_text}}
+                </div>
+            </a>
+
+        </div>
+    
+        <div class=" col-6">
+            <a class="health-card d-flex" > 
+                <div class="p-2 bold font-weight-bold">
+                    Your Heart Rate : {{heart}} BPM
+                </div>
+                <div>
+
+                </div>
+            </a>
+
+        </div>
+    </div> 
+    <div class="row">
+        <div class=" col-6">
+            <a class="health-card d-flex" > 
+                
+                <div class="p-2 font-weight-bold">
+                    Burned {{calorie}} kcal
+                </div>
+            </a>
+
+        </div>
+    
+        <div class=" col-6">
+            <a class="health-card d-flex" > 
+                
+                <div class="p-2 font-weight-bold">
+                    {{sleep}} hrs of sleep
+                </div>
+            </a>
+
+        </div>
+    </div> 
+</div>

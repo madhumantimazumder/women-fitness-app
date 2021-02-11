@@ -2,15 +2,21 @@
     "status":{
         "code":200
     },
-    "user":{                 
-        "name":"Madhumanti Mazumder",
-        "email":"madhu.nb25@gmail.com",
-        "phone": "9433591033"
-    },
-    "goal":{
-        "step":"1500",
-        "weight":50,
-        "calorie":200
-
+    "user":{  
+        
+        "profile" :{
+            "name":"Madhumanti Mazumder",
+            "email":"madhu.nb25@gmail.com",
+            "age": 30,
+            "height": 5,
+            "weight":60,
+            "date":"12/06/2021"
+        },
+        "goal":{
+            "step":1500,
+            "weight":50,
+            "calorie":200    
+        }
     }
+    
 }

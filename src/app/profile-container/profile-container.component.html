@@ -11,9 +11,17 @@
           <input formControlName="email" class="form-control" type="email" placeholder="Email Address" name="email" >
         </div>
         <div class="form-group">
-            Phone:
-          <input name="phone" formControlName="phone" class="form-control" placeholder="phone" >
+            Age:
+          <input name="age" formControlName="age" class="form-control" placeholder="Age" >
         </div>
+        <div class="form-group">
+          Height (ft):
+        <input name="height" formControlName="height" class="form-control" placeholder="height" >
+      </div>
+      <div class="form-group">
+        Weight (ft):
+        <input name="weight" formControlName="weight" class="form-control" placeholder="weight" >
+      </div>
         <div class="form-group">
           <button [disabled]="!profileForm.valid" *ngIf="edit" type="submit" class="btn btn-primary username-btn">Submit</button>
         </div>
