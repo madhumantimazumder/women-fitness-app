@@ -13,4 +13,8 @@ Run inside the project folder
 npm install
 ng serve --watch
 
+## To build the app
+
+ng build --prod --base-href "https://madhumantimazumder.github.io/women-fitness-app/"
+
 
