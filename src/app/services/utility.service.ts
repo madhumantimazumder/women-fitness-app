@@ -119,7 +119,7 @@ export class UtilityService {
     }
     getweeklyCalorieBurn(){
       return this.serviceWrapper(
-        environment.API_URL+"calori.json",
+        environment.API_URL+"calorie.json",
         "",
         (successData) => {      
               return {
