@@ -141,4 +141,16 @@ export class UtilityService {
         
         });
     }
+    getIdealData(){
+      return this.serviceWrapper(
+        environment.API_URL+"idealData.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData.user
+              };
+        
+        });
+    }
 }

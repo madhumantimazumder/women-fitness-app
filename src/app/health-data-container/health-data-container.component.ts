@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 export class HealthDataContainerComponent implements OnInit {
 
   constructor(private utilityService: UtilityService,private router: Router) { }
-  desc =false;
+  
   step_Desc;
   activity_Desc;
   calorie_Desc;
@@ -22,12 +22,21 @@ export class HealthDataContainerComponent implements OnInit {
   public chartData: Object [];
   public primaryXAxis: Object; 
   title;
-  ngOnInit(): void {
-    this.getDailyData();
+  desc;
+  idealdata;
+  ngOnInit(): void {    
+    this.utilityService.getIdealData().subscribe((response)=>{ 
+      this.idealdata=response;  
+      this.getDailyData();   
+      
+    },
+    (error)=>{
+    });
   }
   redirectTo(url){
     this.router.navigateByUrl(url);
   }
+  
   stepDesc(){
     // this.step_Desc= !this.step_Desc;
     this.utilityService.getweeklyStepcount().subscribe((response)=>{ 
@@ -41,6 +50,13 @@ export class HealthDataContainerComponent implements OnInit {
         { day:'6', data: response.day['6']},      
         { day:'7', data: response.day['7'] }
      ];  
+     let avg=(Number(response.day['1'])+Number(response.day['2'])+Number(response.day['3'])+Number(response.day['4'])+Number(response.day['5'])+Number(response.day['6'])+Number(response.day['7']))/7;
+     if(avg<this.idealdata.step){
+          this.desc="Your average step count for past week is less than the average";
+     }
+     else{
+       this.desc="";
+     }
     },
     (error)=>{
     });
@@ -61,6 +77,13 @@ export class HealthDataContainerComponent implements OnInit {
         { day:'6', data: response.day['6']},      
         { day:'7', data: response.day['7'] }
      ];  
+     let avg=(Number(response.day['1'])+Number(response.day['2'])+Number(response.day['3'])+Number(response.day['4'])+Number(response.day['5'])+Number(response.day['6'])+Number(response.day['7']))/7;
+     if(avg<this.idealdata.sleep){
+          this.desc="Your average hours of sleeping for past week is less than the average";
+     }
+     else{
+       this.desc="";
+     }
     },
     (error)=>{
     });
@@ -98,6 +121,14 @@ export class HealthDataContainerComponent implements OnInit {
         { day:'6', data: response.day['6']},      
         { day:'7', data: response.day['7'] }
      ];  
+
+     let avg=(Number(response.day['1'])+Number(response.day['2'])+Number(response.day['3'])+Number(response.day['4'])+Number(response.day['5'])+Number(response.day['6'])+Number(response.day['7']))/7;
+     if(avg<this.idealdata.activity){
+          this.desc="Your average hours of exercising for past week is less than the average";
+     }
+     else{
+       this.desc="";
+     }
     },
     (error)=>{
     });
@@ -116,6 +147,16 @@ export class HealthDataContainerComponent implements OnInit {
       this.activity=response.data.activity;
       this.heart = response.data.heart;
       this.getUserData();
+      
+      if(this.heart<this.idealdata.heart){
+           this.desc="Your heart rate is less than the average";
+      }
+      else if(this.heart>this.idealdata.heart){
+        this.desc="Your heart rate is greater than the average";
+      }
+      else{
+        this.desc="";
+      }
     },
     (error)=>{
     });

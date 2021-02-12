@@ -1,0 +1,13 @@
+{
+    "status":{
+        "code":200
+    },
+    "user":{      
+        "weight":"55",
+        "heart":"70",
+        "step":"1500",
+        "activity":".5" ,
+        "sleep" : "8" 
+        
+    }
+}
