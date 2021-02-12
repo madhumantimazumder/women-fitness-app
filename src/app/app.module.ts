@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { UtilityService } from './services/utility.service';
 import {HealthDataContainerComponent } from'./health-data-container/health-data-container.component';
 import {ProfileContainerComponent } from'./profile-container/profile-container.component';
-import { DataComponent } from './health-data-container/data/data.component';
+import { ChartModule } from '@syncfusion/ej2-angular-charts'; 
+import { ChartComponent } from './chart/chart.component';
+import { CategoryService, LineSeriesService } from '@syncfusion/ej2-angular-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProfileContainerComponent,
     HealthDataContainerComponent,
-    DataComponent
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +24,9 @@ import { DataComponent } from './health-data-container/data/data.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ChartModule
   ],
-  providers: [UtilityService],
+  providers: [UtilityService,CategoryService, LineSeriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

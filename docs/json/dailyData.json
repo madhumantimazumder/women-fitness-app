@@ -7,7 +7,8 @@
         "count":1500,        
         "calorie":200,
         "heart":120,
-        "sleep":10
+        "sleep":10,
+        "activity":2
 
     }
 }

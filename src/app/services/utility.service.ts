@@ -93,4 +93,52 @@ export class UtilityService {
         
         });
     }
+    getweeklyStepcount(){
+      return this.serviceWrapper(
+        environment.API_URL+"stepcount.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData
+              };
+        
+        });
+    }
+    getweeklyActivity(){
+      return this.serviceWrapper(
+        environment.API_URL+"activity.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData
+              };
+        
+        });
+    }
+    getweeklyCalorieBurn(){
+      return this.serviceWrapper(
+        environment.API_URL+"calori.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData
+              };
+        
+        });
+    }
+    getweeklySleepHour(){
+      return this.serviceWrapper(
+        environment.API_URL+"sleep.json",
+        "",
+        (successData) => {      
+              return {
+    
+                  'data': successData
+              };
+        
+        });
+    }
 }

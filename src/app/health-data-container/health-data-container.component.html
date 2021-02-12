@@ -1,8 +1,9 @@
 <div class="panel-content container">  
     <div class="p-2 status__tile">
-        <p>Your weight is {{cur_weight}} </p>
+        <p>Your weight : {{cur_weight}} </p>
         <p class="date">last updated {{last_date}}</p>
-        <p>{{weight_text}}</p>
+        <p>{{weight_text}}</p>        
+        <p>Your Heart Rate : {{heart}} BPM</p>
     </div>  
     <div class="row">
         <div class=" col-6">
@@ -16,40 +17,37 @@
                     {{step_text}}
                 </div>
             </a>
-
         </div>
     
         <div class=" col-6">
-            <a class="health-card d-flex" > 
+            <a class="health-card d-flex"  (click)="activityDesc()"> 
                 <div class="p-2 bold font-weight-bold">
-                    Your Heart Rate : {{heart}} BPM
+                    Exercise : {{activity}} hour
                 </div>
                 <div>
 
                 </div>
             </a>
-
         </div>
     </div> 
     <div class="row">
         <div class=" col-6">
-            <a class="health-card d-flex" > 
+            <a class="health-card d-flex"  (click)="calorieDesc()"> 
                 
                 <div class="p-2 font-weight-bold">
                     Burned {{calorie}} kcal
                 </div>
             </a>
-
         </div>
     
         <div class=" col-6">
-            <a class="health-card d-flex" > 
+            <a class="health-card d-flex"  (click)="sleepDesc()"> 
                 
                 <div class="p-2 font-weight-bold">
                     {{sleep}} hrs of sleep
                 </div>
             </a>
-
         </div>
     </div> 
 </div>
+<app-chart  [primaryXAxis]="primaryXAxis" [chartData]="chartData" [title]="title"></app-chart>

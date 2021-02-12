@@ -10,37 +10,111 @@ export class HealthDataContainerComponent implements OnInit {
 
   constructor(private utilityService: UtilityService,private router: Router) { }
   desc =false;
-  currentData;
+  step_Desc;
+  activity_Desc;
+  calorie_Desc;
+  sleep_Desc;
   sleep;
   count;
   calorie;
-  heart;
+  activity;
   count_left;
+  public chartData: Object [];
+  public primaryXAxis: Object; 
+  title;
   ngOnInit(): void {
     this.getDailyData();
-    this.utilityService.desc.subscribe(function(t) {
-      if(t==true)
-        this.desc=true;
-      else
-        this.desc=false;
-  });
   }
   redirectTo(url){
     this.router.navigateByUrl(url);
   }
   stepDesc(){
-    this.currentData="steps";
-    this.desc=true;
+    // this.step_Desc= !this.step_Desc;
+    this.utilityService.getweeklyStepcount().subscribe((response)=>{ 
+      //this.profileForm.get('name').setValue(data.user.name);
+      this.chartData = [
+        { day:'1', data: response.day['1'] },
+        { day:'2', data: response.day['2'] },
+        { day:'3', data: response.day['3'] },
+        { day:'4', data: response.day['4'] },
+        { day:'5', data: response.day['5'] },
+        { day:'6', data: response.day['6']},      
+        { day:'7', data: response.day['7'] }
+     ];  
+    },
+    (error)=>{
+    });
+    
+   this.primaryXAxis = { valueType: 'Category' };
+   this.title="Past 7 Days Step Count" ; 
   }
  
-    
+  sleepDesc(){
+    this.utilityService.getweeklySleepHour().subscribe((response)=>{ 
+      //this.profileForm.get('name').setValue(data.user.name);
+      this.chartData = [
+        { day:'1', data: response.day['1'] },
+        { day:'2', data: response.day['2'] },
+        { day:'3', data: response.day['3'] },
+        { day:'4', data: response.day['4'] },
+        { day:'5', data: response.day['5'] },
+        { day:'6', data: response.day['6']},      
+        { day:'7', data: response.day['7'] }
+     ];  
+    },
+    (error)=>{
+    });
+   this.primaryXAxis = { valueType: 'Category' };
+   this.title="Past 7 Days sleeping hour" ; 
+  }
+  calorieDesc(){
+    this.utilityService.getweeklyCalorieBurn().subscribe((response)=>{ 
+      //this.profileForm.get('name').setValue(data.user.name);
+      this.chartData = [
+        { day:'1', data: response.day['1'] },
+        { day:'2', data: response.day['2'] },
+        { day:'3', data: response.day['3'] },
+        { day:'4', data: response.day['4'] },
+        { day:'5', data: response.day['5'] },
+        { day:'6', data: response.day['6']},      
+        { day:'7', data: response.day['7'] }
+     ];  
+    },
+    (error)=>{
+    });
+   this.primaryXAxis = { valueType: 'Category' };
+   this.title="Past 7 Days calorie burn" ; 
+   
+  }
+  activityDesc(){
+    this.utilityService.getweeklyActivity().subscribe((response)=>{ 
+      //this.profileForm.get('name').setValue(data.user.name);
+      this.chartData = [
+        { day:'1', data: response.day['1'] },
+        { day:'2', data: response.day['2'] },
+        { day:'3', data: response.day['3'] },
+        { day:'4', data: response.day['4'] },
+        { day:'5', data: response.day['5'] },
+        { day:'6', data: response.day['6']},      
+        { day:'7', data: response.day['7'] }
+     ];  
+    },
+    (error)=>{
+    });
+   this.primaryXAxis = { valueType: 'Category' };
+   this.title="Past 7 Days exercise hour" ; 
+  }
+
+ 
+  heart;
   getDailyData(){
     this.utilityService.getDailyHealthdata().subscribe((response)=>{ 
       //this.profileForm.get('name').setValue(data.user.name);
       this.sleep=response.data.sleep;
       this.count=response.data.count;
       this.calorie=response.data.calorie;
-      this.heart=response.data.heart;
+      this.activity=response.data.activity;
+      this.heart = response.data.heart;
       this.getUserData();
     },
     (error)=>{
